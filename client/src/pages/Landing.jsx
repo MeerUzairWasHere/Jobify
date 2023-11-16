@@ -15,14 +15,14 @@ const Landing = () => {
             job <span>tracking</span> app
           </h1>
           <p>
-            "Jobster" is the ultimate job application tracker, designed to
+            "Jobify" is the ultimate job application tracker, designed to
             streamline your job search process and help you stay organized.
             Offering an intuitive and user-friendly interface for job seekers.
           </p>
           <Link to="/register" className="btn register-link">
             Register
           </Link>
-          <Link to="/login" className="btn ">
+          <Link to="/login" className="btn">
             Login / Demo User
           </Link>
         </div>
