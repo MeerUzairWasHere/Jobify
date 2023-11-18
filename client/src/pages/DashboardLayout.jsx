@@ -47,7 +47,6 @@ const DashboardLayout = () => {
             </div>
           </div>
         </main>
-        <Outlet />
       </Wrapper>
     </DashboardContext.Provider>
   );
