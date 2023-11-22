@@ -20,6 +20,7 @@ import { authenticateUser } from "./middleware/authMiddleware.js";
 //routes
 import jobRouter from "./routes/jobRoutes.js";
 import authRouter from "./routes/authRoutes.js";
+import userRouter from "./routes/userRoutes.js";
 
 //applying thirdparty middlewares
 const app = express();
@@ -31,6 +32,7 @@ app.use(cookieParser());
 
 //applying local middlewares
 app.use("/api/v1/jobs", authenticateUser, jobRouter);
+app.use("/api/v1/users", authenticateUser, userRouter);
 app.use("/api/v1/auth", authRouter);
 
 //handling errors
