@@ -7,7 +7,11 @@ import {
   updateUser,
 } from "../controllers/userController.js";
 import { validateUpdateUserInput } from "../middleware/validationMiddleware.js";
-import { authorizePermissions } from "../middleware/authMiddleware.js";
+import {
+  authorizePermissions,
+  checkForTestUser,
+} from "../middleware/authMiddleware.js";
+import uploadMiddleware from "../middleware/multerMiddleware.js";
 
 router.get("/current-user", getCurrentUser);
 router.get(
@@ -15,5 +19,11 @@ router.get(
   authorizePermissions("admin"),
   getApplicationStats
 );
-router.patch("/update-user", validateUpdateUserInput, updateUser);
+router.patch(
+  "/update-user",
+  checkForTestUser,
+  uploadMiddleware.single("avatar"),
+  validateUpdateUserInput,
+  updateUser
+);
 export default router;

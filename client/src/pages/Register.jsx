@@ -29,7 +29,8 @@ const Register = () => {
         <FormRow type="text" name="location" />
         <FormRow type="email" name="email" />
         <FormRow type="password" name="password" />
-        <SubmitBtn formBtn={true} />
+        <SubmitBtn />
+
         <p>
           Already a member?
           <Link to="/login" className="member-btn">
