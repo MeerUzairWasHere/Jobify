@@ -50,7 +50,7 @@ export const getAllJobs = async (req, res) => {
   res
     .status(StatusCodes.OK)
     .json({ totalJobs, numOfPages, currentPage: page, jobs });
-  // const jobs = await Job.find({ createdBy: req.user.userId });
+ 
 };
 
 export const createJob = async (req, res) => {
