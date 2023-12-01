@@ -50,6 +50,10 @@ app.use("/api/v1/jobs", authenticateUser, jobRouter);
 app.use("/api/v1/users", authenticateUser, userRouter);
 app.use("/api/v1/auth", authRouter);
 
+app.get("*", (res, req) => {
+  res.sendFile(path.resolve(__dirname, "./public", "index.html"));
+});
+
 //handling errors
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
