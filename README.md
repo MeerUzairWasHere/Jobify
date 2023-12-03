@@ -15,9 +15,6 @@ Once logged in, users can easily add, view, edit, and delete job applications th
 ### Demo Login: 
 To prevent spam and unauthorized access, self-registration is disabled. However, Jobify offers a demo login option, allowing users to explore the app's functionality. To gain full access, users can contact the administrator for an account setup.
 
-### How to Get Full Access:
-
-If you'd like to have full access to Jobify, please contact the administrator. The administrator will create an account for you in the database, granting you the ability to use all of Jobify's features.
 
 ### Why Jobify:
 
