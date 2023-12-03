@@ -35,11 +35,9 @@
 * [Contributing](#contributing)
 * [License](#license)
 * [Authors](#authors)
-* [Acknowledgements](#acknowledgements)
 
 ## About The Project
 
-![Screen Shot](images/screenshot.png)
 
 **Introducing Jobify: Your Premier Job Application Management Solution**
 
