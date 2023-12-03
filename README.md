@@ -1,7 +1,8 @@
 <br/>
 <p align="center">
   <a href="https://github.com/MeerUzairWasHere/Jobify">
-    ![logo](https://github.com/MeerUzairWasHere/Jobify/blob/main/client/src/assets/images/logo.svg)
+        <img src="https://github.com/MeerUzairWasHere/Jobify/blob/main/client/src/assets/images/logo.svg" alt="Logo" width="80" height="80">
+    
 
   </a>
 
@@ -283,3 +284,5 @@ Distributed under the MIT License. See [LICENSE](https://github.com/MeerUzairWas
 ## Authors
 
 * **Mir Uzair** - *Crafting immersive user experiences through clean and elegant code* - [Mir Uzair](https://github.com/MeerUzairWasHere)
+
+
