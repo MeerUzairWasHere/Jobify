@@ -1,7 +1,7 @@
 {
   "name": "jobify",
   "version": "1.0.0",
-  "description": "[Jobify](https://jobify.live/)",
+  "description": "[Jobify] made by meer",
   "main": "index.js",
   "type": "module",
   "scripts": {

@@ -6849,11 +6849,7 @@ Need: This package is necessary to manage and regulate the number of requests ma
 server.js
 
 ```js
-import helmet from "helmet";
-import mongoSanitize from "express-mongo-sanitize";
 
-app.use(helmet());
-app.use(mongoSanitize());
 ```
 
 routes/authRouter.js

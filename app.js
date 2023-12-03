@@ -6,6 +6,9 @@ import express from "express";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import cloudinary from "cloudinary";
+import helmet from "helmet";
+import mongoSanitize from "express-mongo-sanitize";
+
 
 // public
 import { dirname } from "path";
@@ -39,6 +42,10 @@ if (process.env.NODE_ENV === "development") {
 app.use(cookieParser());
 app.use(express.static(path.resolve(__dirname, "./client/dist")));
 
+//security packages
+app.use(helmet());
+app.use(mongoSanitize());
+
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
   api_key: process.env.CLOUD_API_KEY,
@@ -50,9 +57,10 @@ app.use("/api/v1/jobs", authenticateUser, jobRouter);
 app.use("/api/v1/users", authenticateUser, userRouter);
 app.use("/api/v1/auth", authRouter);
 
-app.get("*", (res, req) => {
+app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "./client/dist", "index.html"));
 });
+
 
 //handling errors
 app.use(notFoundMiddleware);
