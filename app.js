@@ -8,7 +8,8 @@ import cookieParser from "cookie-parser";
 import cloudinary from "cloudinary";
 import helmet from "helmet";
 import mongoSanitize from "express-mongo-sanitize";
-
+import axios from "axios"
+import cron from 'node-cron'
 
 // public
 import { dirname } from "path";
@@ -32,6 +33,7 @@ import { authenticateUser } from "./middleware/authMiddleware.js";
 import jobRouter from "./routes/jobRoutes.js";
 import authRouter from "./routes/authRoutes.js";
 import userRouter from "./routes/userRoutes.js";
+import { StatusCodes } from "http-status-codes";
 
 //applying thirdparty middlewares
 const app = express();
@@ -52,6 +54,9 @@ cloudinary.config({
   api_secret: process.env.CLOUD_API_SECRET,
 });
 
+app.get("/api/v1/health", (req, res) => {
+  res.status(StatusCodes.OK).json({ msg: "Server is running!" });
+});
 //applying local middlewares
 app.use("/api/v1/jobs", authenticateUser, jobRouter);
 app.use("/api/v1/users", authenticateUser, userRouter);
@@ -80,3 +85,15 @@ const start = async () => {
 };
 
 start();
+
+// Schedule health check
+cron.schedule("*/14 * * * *", async () => {
+  try {
+    const response = await axios.get(
+      `https://jobify-meeruzairwashere.onrender.com/api/v1/health`
+    );
+    console.log(`Health check successful: ${response.data.msg}`);
+  } catch (error) {
+    console.error(`Health check failed: ${error.message}`);
+  }
+});
