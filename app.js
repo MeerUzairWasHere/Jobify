@@ -87,13 +87,13 @@ const start = async () => {
 start();
 
 // Schedule health check
-cron.schedule("*/14 * * * *", async () => {
-  try {
-    const response = await axios.get(
-      `https://jobify-meeruzairwashere.onrender.com/api/v1/health`
-    );
-    console.log(`Health check successful: ${response.data.msg}`);
-  } catch (error) {
-    console.error(`Health check failed: ${error.message}`);
-  }
-});
+// cron.schedule("*/14 * * * *", async () => {
+//   try {
+//     const response = await axios.get(
+//       `https://jobify-meeruzairwashere.onrender.com/api/v1/health`
+//     );
+//     console.log(`Health check successful: ${response.data.msg}`);
+//   } catch (error) {
+//     console.error(`Health check failed: ${error.message}`);
+//   }
+// });
