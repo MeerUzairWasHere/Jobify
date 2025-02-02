@@ -8,8 +8,7 @@ import cookieParser from "cookie-parser";
 import cloudinary from "cloudinary";
 import helmet from "helmet";
 import mongoSanitize from "express-mongo-sanitize";
-import axios from "axios"
-import cron from 'node-cron'
+import rateLimiter from "express-rate-limit";
 
 // public
 import { dirname } from "path";
@@ -47,6 +46,13 @@ app.use(express.static(path.resolve(__dirname, "./client/dist")));
 //security packages
 app.use(helmet());
 app.use(mongoSanitize());
+app.set("trust proxy", 1);
+app.use(
+  rateLimiter({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 60,
+  })
+);
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
@@ -65,7 +71,6 @@ app.use("/api/v1/auth", authRouter);
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "./client/dist", "index.html"));
 });
-
 
 //handling errors
 app.use(notFoundMiddleware);
